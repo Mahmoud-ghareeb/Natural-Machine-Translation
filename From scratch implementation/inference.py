@@ -1,7 +1,7 @@
 import numpy as np
 
 import tensorflow as tf
-from o_model import Transformer
+from model import Transformer
 
 from dataclasses import dataclass
 

@@ -1,12 +1,13 @@
 import numpy as np
 
 import tensorflow as tf
-from model import Transformer
+from o_model import Transformer
 
 from dataclasses import dataclass
 
 input_vect = tf.keras.models.load_model('./text vectorizer/input_vectorizer')
 target_vect = tf.keras.models.load_model('./text vectorizer/target_vectorizer')
+
 
 @dataclass
 class Config:
@@ -18,11 +19,12 @@ class Config:
     ffd_units: int = 256
     dropout: float = .3
 
+
 args = Config()
 
 vocab = target_vect.layers[0].get_vocabulary()
 
-idx_to_wrd = {idx:wrd for idx, wrd in enumerate(vocab)}
+idx_to_wrd = {idx: wrd for idx, wrd in enumerate(vocab)}
 
 model = Transformer(args)
 model((input_vect(tf.constant(['hi'])), target_vect(tf.constant(['by']))))
@@ -46,7 +48,3 @@ for i in range(5):
     tokens = tokens + ' ' + wrd
 print()
 print(tokens)
-
-
-
-

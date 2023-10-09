@@ -7,6 +7,9 @@ This repository contains all the necessary components to understand, train, and 
 
 ## 📂 File Structure
 
+- **HF transformers**: 
+  - Contains the hf model for translating ar to en.
+
 - **data folder**: 
   - Contains the raw text files essential for my translation tasks.
 
